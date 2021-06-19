@@ -11,7 +11,7 @@ This code provides a minimal use of Eclipse Paho MQTT Python client library as S
 ### Dependencies
 
 - Python 3.8.8
-- MariaDB 10.4
+- MySql
 
 ### Installing
 
