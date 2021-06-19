@@ -63,6 +63,8 @@ This code provides a minimal use of Eclipse Paho MQTT Python client library as S
 
   > (1698, "Access denied for user 'root'@'localhost'")
 
+  Solution
+  
   ```sql
     USE mysql;
     UPDATE user SET plugin='mysql_native_password' WHERE User='root';
