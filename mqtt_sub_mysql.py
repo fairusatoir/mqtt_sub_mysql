@@ -10,17 +10,19 @@ port = 1883
 topic = "same/topic"
 
 # MySql
-db_address = "localhost"
-db_user = "root"
-db_pass = ""
-db_name = ""
+db_address = 'localhost'
+db_user = 'root'
+db_pass = ''
+db_name = 'tess'
 
 
 def on_message(client, userdata, msg):
     value = msg.payload.decode("utf-8").split("-")
 
-    queryInsert = "INSERT INTO " + \
-        value[0]+" VALUES (CURRENT_TIMESTAMP()," + value[1] + ","+value[2]+")"
+    # queryInsert = "INSERT INTO " + \
+    #     value[0]+" VALUES (CURRENT_TIMESTAMP()," + value[1] + ","+value[2]+")"
+
+    queryInsert = "INSERT INTO tableName VALUES ("+value+")"
     insertrec.execute(queryInsert)
     db.commit()
     # print(queryInsert)
@@ -61,5 +63,5 @@ except KeyboardInterrupt:
     db.close()
     print("")
     print("Stop recieve data")
-except MySQLdb._exceptions.OperationalError:
-    print("Database not Found")
+except MySQLdb._exceptions.OperationalError as e:
+    print(e)
